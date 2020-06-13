@@ -28,6 +28,13 @@
         <td><%= total_gross(@movie) %></td>
       </tr>
     </table>
+
+    <%#= link_to "Write Review", new_movie_review_path(@movie),
+              class: "review" %>
+
+    <h3>Write A Review for <%= link_to @movie.title, @movie %></h3>
+
+    <%= render 'reviews/form', movie: @movie, review: @review %>
   </div>
 </section>
 

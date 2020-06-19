@@ -11,4 +11,7 @@ class User < ApplicationRecord
   					uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 10, allow_blank: true }
+
+  scope :by_name, -> { order(:name) }
+  scope :not_admins, -> { by_name.where(admin: false) }
 end

@@ -14,6 +14,8 @@ group :production do
   gem 'pg'
 end
 
+gem "aws-sdk-s3", require: false
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

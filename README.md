@@ -1,7 +1,6 @@
-# README
+# Flix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Flix is a web application that stores information and ratings about movies.
 
 Things you may want to cover:
 

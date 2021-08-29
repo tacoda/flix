@@ -7,8 +7,6 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'pg'
 
-gem "aws-sdk-s3", require: false
-
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets

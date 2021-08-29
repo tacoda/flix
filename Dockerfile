@@ -9,10 +9,11 @@ COPY Gemfile /flix/Gemfile
 COPY Gemfile.lock /flix/Gemfile.lock
 RUN bundle install
 COPY . /flix
+RUN mkdir /flix/tmp/pids
 
 # Add a script to be executed every time the container starts.
-# COPY entrypoint.sh /usr/bin/
-# ENTRYPOINT ["./entrypoint.sh"]
+COPY entrypoint.sh /usr/bin/
+ENTRYPOINT ["./entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.

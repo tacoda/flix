@@ -10,6 +10,8 @@ COPY Gemfile.lock /flix/Gemfile.lock
 RUN bundle install
 COPY . /flix
 RUN mkdir /flix/tmp/pids
+RUN rails db:migrate
+RUN rails assets:precompile
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

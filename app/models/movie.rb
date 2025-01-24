@@ -2,9 +2,9 @@ class Movie < ApplicationRecord
 
   before_save :set_slug
 
-  has_one_attached :main_image
+  # has_one_attached :main_image
 
-  validate :acceptable_image
+  # validate :acceptable_image
 
   # has_many :reviews, dependent: :destroy
   has_many :reviews, -> { order(created_at: :desc) }, dependent: :destroy
@@ -14,7 +14,7 @@ class Movie < ApplicationRecord
   has_many :genres, through: :characterizations
 
   RATINGS = %w(G PG PG-13 R NC-17)
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true #, uniqueness: true
   validates :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }

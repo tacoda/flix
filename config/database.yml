@@ -81,6 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENG["DATABASE_URL"] %>
     database: flix_production
     username: flix
     password: <%= ENV["FLIX_DATABASE_PASSWORD"] %>

@@ -78,6 +78,9 @@ header nav ul {
     letter-spacing: 1px;
     list-style-type: none;
 }
+ul {
+    list-style-type: none;
+}
 
 header nav ul.left {
     margin-right: auto;

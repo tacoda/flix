@@ -1,10 +1,11 @@
 <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
 <% @movies.each do |movie| %>
-    <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow">
-      <div class="flex flex-1 flex-col my-8 p-8">
+    <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-red-100 text-center shadow">
+      <a href="<%= movie_path(movie) %>">
+        <div class="flex flex-1 flex-col my-8 p-8">
         <%= main_image(movie) %>
-        <h3 class="mt-6 text-sm font-medium text-gray-900"><%= link_to movie.title, movie_path(movie) %></h3>
+        <h3 class="mt-6 text-sm font-medium text-gray-900"><%= movie.title %></h3>
         <dl class="mt-1 flex grow flex-col justify-between">
           <dt class="sr-only">Earnings</dt>
           <dd class="text-sm text-gray-500"><%= total_gross(movie) %></dd>
@@ -22,6 +23,7 @@
           </dd>
         </dl>
       </div>
+      </a>
     </li>
 <% end %>
 

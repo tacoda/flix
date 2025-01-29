@@ -184,3 +184,5 @@ Genre.create(name: "Documentary")
 Genre.create(name: "Adventure")
 Genre.create(name: "Animation")
 Genre.create(name: "Sci-Fi")
+
+User.create(name: "Tester McTesterson", email: 'test@example.com', password: 'Secret1234')

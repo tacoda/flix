@@ -24,9 +24,9 @@ module MoviesHelper
 
     def nav_link_to(text, url)
       if current_page?(url)
-        link_to(text, url, class: "active")
+        link_to(text, url, class: "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white", aria: { current: 'page' })
       else
-        link_to(text, url)
+        link_to(text, url, class: "rounded-md px-3 py-2 text-sm font-medium text-red-300 hover:bg-red-700 hover:text-white")
       end
     end
 

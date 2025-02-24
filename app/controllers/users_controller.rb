@@ -25,7 +25,8 @@ class UsersController < ApplicationController
 	  	session[:user_id] = @user.id
 	    redirect_to @user, notice: "Thanks for signing up!"
 	  else
-	    render :new
+		# TODO: Flash errors
+		render :new
 	  end
 	end
 

@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
 	def create
 		user = User.find_by(email: params[:email])
-		raise 'made it here'
 		if user && user.authenticate(params[:password])
 		  session[:user_id] = user.id
 		  redirect_to (session[:intended_url] || user),

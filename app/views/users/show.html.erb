@@ -5,7 +5,7 @@
       <div class="relative lg:row-span-2">
         <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
         <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-          <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+          <div class="px-8 pb-3 py-8 sm:px-10 sm:pb-0 sm:pt-10">
             <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">About Me</p>
             <h1><%= @user.name %></h1>
             <h2><%= mail_to(@user.email) %></h2>
@@ -13,10 +13,10 @@
         </div>
         <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-l-[2rem]"></div>
       </div>
-      <div class="relative max-lg:row-start-1">
+      <div class="relative lg:row-span-2">
         <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
         <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
-          <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+          <div class="px-8 py-8 sm:px-10 sm:pt-10">
             <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Member Since</p>
             <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"><%= @user.created_at.strftime("%B %Y") %></p>
           </div>
@@ -26,7 +26,7 @@
       <div class="relative lg:row-span-2">
         <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
         <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
-          <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+          <div class="px-8 pb-3 py-8 sm:px-10 sm:pb-0 sm:pt-10">
             <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Admin</p>
             <% if current_user?(@user) %>
               <div class="actions">

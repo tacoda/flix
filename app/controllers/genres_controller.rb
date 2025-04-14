@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
-	before_action :require_signin, except: [:index, :show]
-  before_action :require_admin, except: [:index, :show]
-  before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin, except: [ :index, :show ]
+  before_action :require_admin, except: [ :index, :show ]
+  before_action :set_genre, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @genres = Genre.all
@@ -15,7 +15,7 @@ class GenresController < ApplicationController
 
   def update
     if @genre.update(genre_params)
-      redirect_to @genre, notice: 'Genre successfully updated!'
+      redirect_to @genre, notice: "Genre successfully updated!"
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to @genre, notice: 'Genre successfully created!'
+      redirect_to @genre, notice: "Genre successfully created!"
     else
       render :new
     end
@@ -36,7 +36,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-    redirect_to genres_url, alert: 'Genre successfully deleted!'
+    redirect_to genres_url, alert: "Genre successfully deleted!"
   end
 
   private

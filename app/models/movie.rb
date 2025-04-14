@@ -1,5 +1,4 @@
 class Movie < ApplicationRecord
-
   before_save :set_slug
 
   # has_one_attached :main_image
@@ -13,8 +12,8 @@ class Movie < ApplicationRecord
   has_many :characterizations, dependent: :destroy
   has_many :genres, through: :characterizations
 
-  RATINGS = %w(G PG PG-13 R NC-17)
-  validates :title, presence: true #, uniqueness: true
+  RATINGS = %w[G PG PG-13 R NC-17]
+  validates :title, presence: true # , uniqueness: true
   validates :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
@@ -24,7 +23,7 @@ class Movie < ApplicationRecord
   scope :hits, -> { where("total_gross >= 300000000").order(total_gross: :desc) }
   scope :flops, -> { where("total_gross < 225000000").order(:total_gross) }
   scope :recently_added, -> { order(created_at: :desc).limit(3) }
-  scope :recent, ->(max=5) { released.limit(max) }
+  scope :recent, ->(max = 5) { released.limit(max) }
   scope :grossed_less_than, ->(amount) { released.where("total_gross < ?", amount) }
   scope :grossed_greater_than, ->(amount) { released.where("total_gross > ?", amount) }
 
@@ -53,7 +52,7 @@ class Movie < ApplicationRecord
       errors.add(:main_image, "is too big")
     end
 
-    acceptable_types = ["image/jpeg", "image/png"]
+    acceptable_types = [ "image/jpeg", "image/png" ]
     unless acceptable_types.include?(main_image.content_type)
       errors.add(:main_image, "must be a JPEG or PNG")
     end

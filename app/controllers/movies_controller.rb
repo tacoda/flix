@@ -1,8 +1,7 @@
 class MoviesController < ApplicationController
-
-    before_action :require_signin, except: [:index, :show]
-    before_action :require_admin, except: [:index, :show]
-    before_action :set_movie, only: [:show, :edit, :update, :destroy]
+    before_action :require_signin, except: [ :index, :show ]
+    before_action :require_admin, except: [ :index, :show ]
+    before_action :set_movie, only: [ :show, :edit, :update, :destroy ]
 
     def index
       @movies = Movie.send(movies_filter)
@@ -24,7 +23,7 @@ class MoviesController < ApplicationController
       if @movie.update(movie_params)
         # flash[:notice] = 'Movie successfully updated!'
         # redirect_to @movie
-        redirect_to @movie, notice: 'Movie successfully updated!'
+        redirect_to @movie, notice: "Movie successfully updated!"
       else
         render :edit
       end
@@ -37,7 +36,7 @@ class MoviesController < ApplicationController
     def create
       @movie = Movie.new(movie_params)
       if @movie.save
-        redirect_to @movie, notice: 'Movie successfully created!'
+        redirect_to @movie, notice: "Movie successfully created!"
       else
         render :new
       end
@@ -63,7 +62,7 @@ class MoviesController < ApplicationController
     end
 
     def movies_filter
-      if params[:filter].in? %w(upcoming recent hits flops)
+      if params[:filter].in? %w[upcoming recent hits flops]
         params[:filter]
       else
         :released

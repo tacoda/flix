@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  
   before_save :format_email
 
   has_many :reviews, dependent: :destroy
@@ -11,7 +10,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   validates :email, format: { with: /\S+@\S+/ },
-  					uniqueness: { case_sensitive: false }
+            uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 10, allow_blank: true }
 
@@ -19,7 +18,6 @@ class User < ApplicationRecord
   scope :not_admins, -> { by_name.where(admin: false) }
 
   def format_email
-  	self.email = email.downcase
+    self.email = email.downcase
   end
-
 end

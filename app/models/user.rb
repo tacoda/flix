@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  validates :email, format: { with: /\S+@\S+/ },
+  validates :email, format: { with: /\A\S+@\S+\z/ },
             uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 10, allow_blank: true }

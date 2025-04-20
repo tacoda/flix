@@ -12,12 +12,27 @@ class Movie < ApplicationRecord
   has_many :characterizations, dependent: :destroy
   has_many :genres, through: :characterizations
 
-  RATINGS = %w[G PG PG-13 R NC-17]
+  # RATINGS = %w[G PG PG-13 R NC-17]
+  RATINGS = [
+    "G",
+    "GP",
+    "PG",
+    "PG-13",
+    "R",
+    "X",
+    "NC-17",
+    "TV-PG",
+    "TV-MA",
+    "Unrated",
+    "Not Rated",
+    "Passed",
+    "Approved"
+  ]
   validates :title, presence: true # , uniqueness: true
   validates :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
-  validates :rating, inclusion: { in: RATINGS }
+  # validates :rating, inclusion: { in: RATINGS }
   scope :released, -> { where("released_on < ?", Time.now).order(released_on: :desc) }
   scope :upcoming, -> { where("released_on > ?", Time.now).order(released_on: :asc) }
   scope :hits, -> { where("total_gross >= 300000000").order(total_gross: :desc) }

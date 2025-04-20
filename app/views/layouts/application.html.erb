@@ -16,7 +16,8 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <%= stylesheet_link_tag "tailwind", :media => "all" %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_importmap_tags %>
   </head>
 
